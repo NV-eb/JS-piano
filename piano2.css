@@ -1,0 +1,106 @@
+/* General container styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.intro-container h1, .intro-container h3 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 5px 0;
+}
+
+.piano-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin-top: 20px;
+}
+
+.piano-keys-list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* White key styles */
+.white-key {
+    width: 60px;
+    height: 200px;
+    background-color: white;
+    border: 1px solid #000;
+    position: relative;
+    z-index: 1;
+}
+
+/* Black key styles */
+.black-key {
+    width: 40px;
+    height: 120px; /* Slightly taller keys for a better visual */
+    background-color: black;
+    position: absolute;
+    z-index: 2; /* Always on top of white keys */
+    top: 0;
+    left: 40px; /* Space between black keys */
+}
+
+
+/* Black key positions */
+.black-key:nth-of-type(2) { left: 40px; } /* C# */
+.black-key:nth-of-type(4) { left: 100px; } /* D# */
+.black-key:nth-of-type(6) { left: 220px; } /* F# */
+.black-key:nth-of-type(9) { left: 280px; } /* G# */
+.black-key:nth-of-type(11) { left: 340px; } /* A# */
+.black-key:nth-of-type(14) { left: 460px; } /* Next octave C# */
+.black-key:nth-of-type(16) { left: 520px; } /* D# */
+.black-key:nth-of-type(18) { left: 640px; } /* F# */
+.black-key:nth-of-type(21) { left: 700px; } /* G# */
+.black-key:nth-of-type(23) { left: 760px; } /* A# */
+
+/* Interactivity */
+.piano-keys:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.black-key:hover {
+    background-color: #555;
+}
+.piano-keys span {
+    position: absolute; /* Ensures the text stays on top of the key */
+    top: 5px; /* Adjust position for black or white keys */
+    left: 50%; /* Centers the label horizontally */
+    transform: translateX(-50%); /* Correct centering for dynamic widths */
+    font-size: 12px; /* Adjust font size as needed */
+    font-weight: bold;
+    color: black; /* White for black keys, black for white keys */
+    pointer-events: none; /* Prevent interaction with the text */
+}
+
+.white-key span {
+    position: absolute;
+    top: 5px; /* Adjust the vertical position */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+    pointer-events: none; /* Prevent interaction with text */
+}
+
+
+.black-key span {
+    position: absolute;
+    top: 10px; /* Adjust vertical position for better visibility */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    pointer-events: none;
+}
